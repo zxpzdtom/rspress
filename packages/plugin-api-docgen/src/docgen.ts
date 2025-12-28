@@ -182,7 +182,7 @@ function generateTable(
     .map(param => {
       const { props } = param;
       const t = locales[language] ?? locales.en;
-      const PROP_TABLE_HEADER = `|${t.property}|${t.description}|${t.type}|${t.defaultValue}|\n|:---:|:---:|:---:|:---:|`;
+      const PROP_TABLE_HEADER = `|${t.property}|${t.description}|${t.type}|${t.defaultValue}|\n|---|---|---|---|`;
 
       const tableContent = Object.keys(props)
         .filter(propName => {
@@ -195,11 +195,12 @@ function generateTable(
         .map(propName => {
           const { defaultValue, description, name, required, type } =
             props[propName];
-          const getType = () =>
-            `\`${type.name.replace(/\|/g, '\\|')}\`${
-              required ? ` **(${t.required})**` : ''
-            }`;
+          const getType = () => `\`${type.name.replace(/\|/g, '\\|')}\``;
           const getDefaultValue = () => `\`${defaultValue?.value || '-'}\``;
+          const getName = () =>
+            required
+              ? `${name}<i class="rp-api-required" title="required">*</i>`
+              : name;
 
           const getDescription = () => {
             switch (name) {
@@ -220,7 +221,12 @@ function generateTable(
             // allow newline
             .replace(/\n/g, '&#10;');
 
-          return `|${[name, formattedDescription, getType(), getDefaultValue()]
+          return `|${[
+            getName(),
+            formattedDescription,
+            getType(),
+            getDefaultValue(),
+          ]
             .map(str => str.replace(/(?<!\\)\|/g, '&#124;'))
             .join('|')}|`;
         });

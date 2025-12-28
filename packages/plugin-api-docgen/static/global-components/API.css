@@ -7,3 +7,7 @@
   /* allow use &#10; to break line */
   white-space: pre-wrap;
 }
+
+.rspress-plugin-api-docgen table td .rp-api-required {
+  color: var(--rp-container-danger-text, #f5222d);
+}

@@ -1,11 +1,11 @@
 {
-  "name": "@rspress/plugin-api-docgen",
-  "version": "2.0.0-rc.3",
+  "name": "@zxpzdtom/plugin-api-docgen",
+  "version": "2.0.2",
   "description": "A plugin for rspress to generate api doc.",
-  "bugs": "https://github.com/web-infra-dev/rspress/issues",
+  "bugs": "https://github.com/zxpzdtom/rspress/issues",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/web-infra-dev/rspress.git",
+    "url": "git+https://github.com/zxpzdtom/rspress.git",
     "directory": "packages/plugin-api-docgen"
   },
   "license": "MIT",
@@ -32,6 +32,7 @@
     "github-slugger": "^2.0.0",
     "react-docgen-typescript": "2.4.0",
     "react-markdown": "^10.1.0",
+    "rehype-raw": "^7.0.0",
     "remark-gfm": "^4.0.1",
     "unified": "^11.0.5",
     "unist-util-visit": "^5.0.0"

@@ -4,6 +4,7 @@ import { getCustomMDXComponent } from '@theme';
 import GithubSlugger from 'github-slugger';
 import type { Content, Element, Root } from 'hast';
 import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
 import './API.css';
 // biome-ignore lint/style/useImportType: <exact>
@@ -111,11 +112,11 @@ const API = (props: { moduleName: string }) => {
     <div className="rspress-plugin-api-docgen">
       <ReactMarkdown
         remarkPlugins={[[remarkGfm]]}
-        rehypePlugins={[[rehypeHeaderAnchor]]}
+        rehypePlugins={[[rehypeRaw], [rehypeHeaderAnchor]]}
         components={
           getCustomMDXComponent() as Record<string, React.ElementType>
         }
-        skipHtml={true}
+        skipHtml={false}
       >
         {apiDoc}
       </ReactMarkdown>

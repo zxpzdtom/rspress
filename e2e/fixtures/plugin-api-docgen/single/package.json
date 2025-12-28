@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@rspress/core": "workspace:*",
-    "@rspress/plugin-api-docgen": "workspace:*"
+    "@zxpzdtom/plugin-api-docgen": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^22.8.1"
